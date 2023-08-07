@@ -50,7 +50,7 @@ const header:React.FC<headerProps> = () => {
                       <Link href={ROUTES.ABOUT}>Studio & Team</Link>
                     </li>
                     <li className="pb-2 group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:bg-cyan-100 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100">
-                      Our Journey
+                      <Link href={ROUTES.PROJECTS}>Our Journey</Link>
                     </li>
                     <li className="pb-2 group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:bg-cyan-100 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100">
                       <Link href={ROUTES.CONTACT}>Get in Touch</Link>

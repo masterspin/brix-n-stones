@@ -9,7 +9,8 @@ export const slideFromLeft = {
         x:0,
         opacity: 1,
         transition:{
-            ease: [0.6, 0.01, 0.05, 0.95],
+            // ease: [0.6, 0.01, 0.05, 0.95],
+            ease: 'easeInOut',
             duration: 0.35,
         },
     },   
@@ -24,7 +25,8 @@ export const slideFromRight = {
         x:0,
         opacity: 1,
         transition:{
-            ease: [0.6, 0.01, 0.05, 0.95],
+            // ease: [0.6, 0.01, 0.05, 0.95],
+            ease: 'easeInOut',
             duration: 0.45,
         },
     },   
@@ -41,8 +43,9 @@ export const formAnimation = {
         opacity: 1,
         scale: 1,
         transition:{
-            ease: [0.6, 0.01, 0.05, 0.95],
-            duration: 0.65,
+            // ease: [0.6, 0.01, 0.05, 0.95],
+            ease: 'easeInOut',
+            duration: 0.5,
         },
     },   
 };
@@ -54,7 +57,7 @@ export const navAnimation = {
     show:{
         opacity: 1,
         transition:{
-            delayChildren: 4.6,
+            // delayChildren: 4.6,
             staggerChildren: 0.3,
             ease: 'easeInOut',
 
@@ -86,7 +89,7 @@ export const imageFromTop = {
         x:0,
         opacity: 1,
         transition:{
-            delay: 5.8,
+            delay: 1.2,
             ease: 'easeInOut',
             duration: 0.8,
         },
@@ -100,7 +103,7 @@ export const typingContainer = {
     show:{
         opacity: 1,
         transition:{
-            staggerChildren: 0.1,
+            staggerChildren: 0.06,
             ease: 'easeInOut',
 
         }
@@ -130,7 +133,7 @@ export const explainProduct = {
         opacity: 1,
         y: 0,
         transition:{
-            delay: 2.8,
+            delay: 1.8,
             ease: 'easeInOut',
 
         }
@@ -146,7 +149,7 @@ export const buttonProduct = {
         opacity: 1,
         scaleX: 1,
         transition:{
-            delay: 2.3,
+            delay: 1.5,
             ease: 'easeInOut',
 
         }
@@ -162,7 +165,7 @@ export const imgProduct1 = {
         opacity: 1,
         y:0,
         transition:{
-            delay: 3.3,
+            delay: 2.3,
             duration: 0.8,
             ease: 'easeInOut',
 
@@ -181,7 +184,7 @@ export const imgProduct2 = {
         y: 0,
         x: 0,
         transition:{
-            delay: 3.7,
+            delay: 2.5,
             duration: 0.8,
             ease: 'easeInOut',
 
@@ -201,7 +204,7 @@ export const previewAnimation = {
         scale: 1,
         transition:{
             ease: [0.6, 0.01, 0.05, 0.95],
-            duration: 1,
+            duration: 0.8,
         }
     }
 }
