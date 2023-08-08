@@ -50,6 +50,26 @@ export const formAnimation = {
     },   
 };
 
+export const projectCardsAnimation = {
+    initial:{
+        y: 0,
+        opacity: 20,
+        scale: 0.55,
+        wdith: 384,
+    },
+    animate:{
+        y:0,
+        opacity: 1,
+        scale: 1,
+        width: 'auto',
+        transition:{
+            // ease: [0.6, 0.01, 0.05, 0.95],
+            ease: 'easeInOut',
+            duration: 0.31,
+        },
+    },   
+};
+
 export const navAnimation = {
     hidden:{
         opacity: 0,
