@@ -14,6 +14,7 @@ import service4 from  '@/../public/images/services/Renovations.png'
 import service5 from  '@/../public/images/services/3D visuals.png'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image';
 import { typingContainer, typingText, explainProduct, buttonProduct, imgProduct1, imgProduct2, previewAnimation } from '@/utils/animations';
 
 type landingProps = {
@@ -66,7 +67,7 @@ const landing:React.FC<landingProps> = () => {
                     <form>
                         <motion.button variants={buttonProduct} initial='hidden' animate='show' formAction={ROUTES.CONTACT} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-2xl flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
                             Let's talk
-                            <img src={arrow.src} width="28px"></img>
+                            <Image src={arrow.src} alt='arrow' width={28} height={28} />
                         </motion.button>
                     </form>
             </div>
@@ -83,7 +84,7 @@ const landing:React.FC<landingProps> = () => {
                     <form>
                         <button formAction={ROUTES.CONTACT} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-2xl flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
                             Let's talk
-                            <img src={arrow.src} width="28px"></img>
+                            <Image src={arrow.src} alt='arrow' width={28} height={28} />
                         </button>
                     </form>
             </div>

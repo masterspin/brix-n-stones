@@ -751,7 +751,7 @@ video {
     display: flex;
   }
   .embla__slide {
-    flex: 0 0 60%; /* Slide covers 50% of the viewport */
+    flex: 0 0 50%; /* Slide covers 50% of the viewport */
     min-width: 0;
   }
 

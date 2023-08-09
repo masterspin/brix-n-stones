@@ -11,8 +11,7 @@ import CardSkeleton from '@/components/cardSkeleton';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import arrow2 from '@/../public/images/arrow3.png'
 import * as ROUTES from '@/constants/routes'
-import loading from '@/../public/images/loading.gif'
-import { stat } from 'fs';
+import Image from 'next/image';
 
 export default function Page({ params }: { params: { id: string } }) {
 
@@ -23,7 +22,6 @@ export default function Page({ params }: { params: { id: string } }) {
     const [isLoading, setLoading] = useState(true);
     const [link, setLink] = useState('')
     const [temper, setTemper] = useState([] as any)
-    // console.log(isLoading)
   
     useEffect(() =>{
       const q = query(collection(db, 'projects'), where("project_id", "==", params.id))
@@ -38,7 +36,6 @@ export default function Page({ params }: { params: { id: string } }) {
               if((response['prefixes'][i]['_location']['path_']).substring((doc.data()['project_id'] + '.' + doc.data()['name'] + '/').length) != 'COVER'){
                 room['name'] = (response['prefixes'][i]['_location']['path_']).substring((doc.data()['project_id'] + '.' + doc.data()['name'] + '/').length)
                 const roomRef = ref(storage, `${doc.data()['project_id']}.${doc.data()['name']}/${room['name']}/`);
-                console.log(room['name'])
                 listAll(roomRef).then((roomResponse) => {
                     roomResponse.items.forEach((item) => {
                         getDownloadURL(item).then((url) =>{
@@ -50,13 +47,11 @@ export default function Page({ params }: { params: { id: string } }) {
                     room['urls'] = urlsArr
                     setTempRoom(room)
                 });
-                // console.log(room)
                 overallRooms.push(room)
                 setUrls(overallRooms)
               }
             }
             // setUrls(urlsArr)
-            // console.log({...doc.data()})
             setStateRooms(overallRooms);
             setItems({...doc.data()})
             setLoading(false)
@@ -67,8 +62,6 @@ export default function Page({ params }: { params: { id: string } }) {
       });
     },[])  
 
-    // console.log(items)
-    console.log(stateRooms)
 
     return (
         <div>
@@ -93,13 +86,13 @@ export default function Page({ params }: { params: { id: string } }) {
             </Link>
             )
           }
-            <form className='my-auto items-center mx-auto my-auto'>
+          </div>
+          <form className='my-auto items-center mx-auto my-auto'>
                 <motion.button variants={buttonProduct} initial='hidden' animate='show' formAction={ROUTES.PROJECTS} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-lg flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
-                    <img src={arrow2.src} width="20px"></img>
+                    <Image src={arrow2.src} width={20} height={20} alt='Back To ' />
                     All Projects
                 </motion.button>
             </form>
-          </div>
           </div>
         </div> 
       )

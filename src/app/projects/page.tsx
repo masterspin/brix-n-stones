@@ -2,20 +2,17 @@
 import { useState, useEffect, useReducer } from "react";
 import { QuerySnapshot, collection, getDoc, onSnapshot, query } from 'firebase/firestore'
 import Header from "@/components/header";
-import test from '@/../public/images/homepage/image1.jpeg'
 import CardSkeleton from "@/components/cardSkeleton";
 import { projectCardsAnimation } from "@/utils/animations";
 import { motion } from 'framer-motion'
 import { db, storage } from '../firebase'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 import Link from 'next/link'
-import loading from '@/../public/images/loading.gif'
 
 // async function getProjects(){
 //     const querySnapshot = await getDocs(collection(db, "projects"));
 //     querySnapshot.forEach((doc) => {
 //       // doc.data() is never undefined for query doc snapshots
-//       console.log(doc.id, " => ", doc.data());
 //     });
 
 //     return querySnapshot;
@@ -46,10 +43,7 @@ export default function Home() {
   //               });
   //           });
   //       });
-  //       console.log(tempSlides)
   //       let index = Math.floor((Math.random() * tempSlides.length));
-  //       console.log(index)
-  //       console.log(tempSlides[0])
   //       arr.push({name: doc.data()['name'], project_id: doc.data()['project_id'], image: tempSlides});
 
   //     });
@@ -64,7 +58,6 @@ export default function Home() {
   const [urls, setUrls] = useState('')
   const [isLoading, setLoading] = useState(true);
   const [temper, setTemper] = useState([] as any)
-  // console.log(isLoading)
 
   useEffect(() =>{
     const q = query(collection(db, 'projects'))
@@ -88,10 +81,8 @@ export default function Home() {
       setLoading(false)
       return () => unsubscribe();
     });
-    // console.log(isLoading)
   },[])
 
-  console.log(items)
 
   return (
     <div>
