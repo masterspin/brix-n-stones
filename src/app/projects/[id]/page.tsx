@@ -8,10 +8,11 @@ import { projectCardsAnimation, buttonProduct } from '@/utils/animations';
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import CardSkeleton from '@/components/cardSkeleton';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import TitleSkeleton from '@/components/titleSkeleton';
 import arrow2 from '@/../public/images/arrow3.png'
 import * as ROUTES from '@/constants/routes'
 import Image from 'next/image';
+import ButtonSkeleton from '@/components/buttonSkeleton';
 
 export default function Page({ params }: { params: { id: string } }) {
 
@@ -67,14 +68,14 @@ export default function Page({ params }: { params: { id: string } }) {
         <div>
         <Header />
         <div className="flex flex-col items-center justify-center pb-16 pt-14 bg-center bg-cover">
-        {isLoading && <SkeletonTheme baseColor="#525252" highlightColor="#8f8f8f"><h1 className="text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><Skeleton /></h1></SkeletonTheme>}
-            {  
-                <div className='flex pb-4'>
-                    <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{items.name}</h1>
-                </div>
-            }
+        {isLoading && <TitleSkeleton lower={false} />}
+        {!isLoading && 
+            <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
+                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{items.name}</h1>
+            </motion.div>
+        }
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 pt-12 pb-12 px-8 md:px-auto">
-            {isLoading && <CardSkeleton cards={3} />}
+          {isLoading && <CardSkeleton cards={3}/>}
           {
             (stateRooms).map((proj) =>
               <Link href={'/projects/' + items.project_id + '/' + proj.name} key={proj.name}>
@@ -87,12 +88,14 @@ export default function Page({ params }: { params: { id: string } }) {
             )
           }
           </div>
-          <form className='my-auto items-center mx-auto my-auto'>
+          {isLoading && <ButtonSkeleton />}
+          {!isLoading && <form className='my-auto items-center mx-auto my-auto'>
                 <motion.button variants={buttonProduct} initial='hidden' animate='show' formAction={ROUTES.PROJECTS} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-lg flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
                     <Image src={arrow2.src} width={20} height={20} alt='Back To ' />
                     All Projects
                 </motion.button>
             </form>
+          }
           </div>
         </div> 
       )

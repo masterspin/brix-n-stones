@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import { db, storage } from '../firebase'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 import Link from 'next/link'
+import TitleSkeleton from "@/components/titleSkeleton";
 
 // async function getProjects(){
 //     const querySnapshot = await getDocs(collection(db, "projects"));
@@ -87,7 +88,13 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="flex flex-col items-center justify-center bg-center bg-cover">
+      <div className="flex flex-col items-center pb-16 pt-14 justify-center bg-center bg-cover">
+      {isLoading && <TitleSkeleton lower={false} />}
+        {!isLoading && 
+            <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
+                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Our Journey</h1>
+            </motion.div>
+        }
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 pt-12 pb-12 px-8 md:px-auto"> 
       {isLoading && <CardSkeleton cards={5} />}
       {

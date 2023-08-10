@@ -4,6 +4,9 @@ import Image from 'next/image'
 import { Carousel, Embla } from '@mantine/carousel';
 import { Progress, rem } from '@mantine/core'
 import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
+import { motion } from 'framer-motion'
+import { projectCardsAnimation } from '@/utils/animations';
+
 
 
 
@@ -38,7 +41,7 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
     },[embla])
     
     return (
-        <div>
+        <motion.div variants={projectCardsAnimation} initial='initial' animate='animate'>
         <Carousel maw={750} controlSize={40} nextControlIcon={<IconArrowRight size={16} />}
       previousControlIcon={<IconArrowLeft size={16} />} getEmblaApi={setEmbla} styles={{
         control: {
@@ -53,7 +56,7 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
         <Progress value={scrollProgress} size="sm" mt="lg" mx="auto" styles={{ bar: { transitionDuration: '0ms' }, root: { maxWidth: rem(320) } }}>
         
         </Progress>
-        </div>
+        </motion.div>
         );
 }
 export default EmblaCarousel;
