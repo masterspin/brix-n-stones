@@ -1,8 +1,8 @@
 // File: /Users/ritij/Documents/Projects/nextbrixnstones/.react-email/src/app/preview/[slug]/page.tsx
-import * as entry from '../../../../../src/app/preview/[slug]/page.js'
-import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
+import * as entry from '../../../../../src/app/preview/[slug]/page'
+import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface'
 
-type TEntry = typeof import('../../../../../src/app/preview/[slug]/page.js')
+type TEntry = typeof entry
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
@@ -13,13 +13,10 @@ checkFields<Diff<{
   dynamic?: 'auto' | 'force-dynamic' | 'error' | 'force-static'
   dynamicParams?: boolean
   fetchCache?: 'auto' | 'force-no-store' | 'only-no-store' | 'default-no-store' | 'default-cache' | 'only-cache' | 'force-cache'
-  preferredRegion?: 'auto' | 'global' | 'home' | string | string[]
+  preferredRegion?: 'auto' | 'home' | 'edge'
   runtime?: 'nodejs' | 'experimental-edge' | 'edge'
-  maxDuration?: number
-  
   metadata?: any
   generateMetadata?: Function
-  
 }, TEntry, ''>>()
 
 // Check the prop type of the entry function
@@ -36,7 +33,7 @@ if ('generateStaticParams' in entry) {
   checkFields<Diff<{ params: PageParams }, FirstArg<MaybeField<TEntry, 'generateStaticParams'>>, 'generateStaticParams'>>()
   checkFields<Diff<{ __tag__: 'generateStaticParams', __return_type__: any[] | Promise<any[]> }, { __tag__: 'generateStaticParams', __return_type__: ReturnType<MaybeField<TEntry, 'generateStaticParams'>> }>>()
 }
-
+  
 type PageParams = any
 export interface PageProps {
   params?: any
@@ -59,8 +56,6 @@ type Diff<Base, T extends Base, Message extends string = ''> = 0 extends (1 & T)
 type FirstArg<T extends Function> = T extends (...args: [infer T, any]) => any ? unknown extends T ? any : T : never
 type SecondArg<T extends Function> = T extends (...args: [any, infer T]) => any ? unknown extends T ? any : T : never
 type MaybeField<T, K extends string> = T extends { [k in K]: infer G } ? G extends Function ? G : never : never
-
-
 
 function checkFields<_ extends { [k in keyof any]: never }>() {}
 

@@ -1,9 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
 import { formAnimation } from '@/utils/animations'
+import { useState } from 'react'
 import React from 'react'
 import background from "../../public/images/whitebricks.png"
 import emailjs, { send } from 'emailjs-com';
+
+function isInputNamedElement(e: Element): e is HTMLInputElement & { name: string } {
+  return 'value' in e && 'name' in e
+}
 
 type formProps = {
     
@@ -11,16 +16,50 @@ type formProps = {
 
 const form:React.FC<formProps> = () => {
 
-  function sendEmail(e: any){
+
+  async function handleOnSubmit(e: any) {
     e.preventDefault();
+
     emailjs.sendForm('gmail', 'template_lhwm1o4', e.target, '4ZrndHac-ANgxcKX7')
     .then((result) => {
         console.log(result.text);
     }, (error) => {
         console.log(error.text);
     });
+
+    const formData: Record<string, string> = {};
+
+    Array.from(e.currentTarget.elements).filter(isInputNamedElement).forEach((field) => {
+        if (!field.name) return;
+        formData[field.name] = field.value;
+    });
+
+    await fetch('/api/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        message: formData.message,
+      })
+    })
+
     e.target.reset()
   }
+
+  // function sendEmail(e: any){
+  //   e.preventDefault();
+  //   emailjs.sendForm('gmail', 'template_lhwm1o4', e.target, '4ZrndHac-ANgxcKX7')
+  //   .then((result) => {
+  //       console.log(result.text);
+  //   }, (error) => {
+  //       console.log(error.text);
+  //   });
+  //   e.target.reset()
+  // }
     
     return(
         
@@ -38,15 +77,15 @@ const form:React.FC<formProps> = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 sm:w-1/2 lg:pt-16 pb-16 px-12 justify-center items-center">
-            <form className="w-full max-w-lg" onSubmit={sendEmail}>
+            <form className="w-full max-w-lg" onSubmit={handleOnSubmit}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 md:mb-0">
                   <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                     Name
                   </label>
                   <div className="flex">
-                    <input className="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mr-5 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="first-name" id="first-name" type="text" placeholder="First Name" required/>
-                    <input className="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="last-name" id="last-name" type="text" placeholder="Last Name" required/>
+                    <input className="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mr-5 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="firstName" id="firstName" type="text" placeholder="First Name" required/>
+                    <input className="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="lastName" id="lastName" type="text" placeholder="Last Name" required/>
                   </div>
                 </div>
               </div>
@@ -64,7 +103,7 @@ const form:React.FC<formProps> = () => {
                   <textarea className="h-full appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="message" id="message" placeholder="Enter your message here" required/>
                 </div>
               </div>
-              <button className="button-74 mt-4" role="button" type="submit">Submit</button>
+              <button className="focus:outline-none button-74 mt-4" role="button" type="submit">Submit</button>
             </form>
           </div>
         </div>

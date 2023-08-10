@@ -75,17 +75,21 @@ const landing:React.FC<landingProps> = () => {
 
     <section className="[text-shadow:_0_1px_0_var(--tw-shadow-color)] max-md:hidden lg:hidden mx-auto max-w-screen-xl h-full md:py-16 hero" style={{backgroundImage: `url(${home3.src})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
             <div className="bg-secondary h-full md:h-[40rem] p-7 rounded-xl md:rounded-none mt-5 md:mt-0 hero-grid">
-                <h1 className="px-2 pt-3 text-black bg-white opacity-80 font-bold text-4xl md:text-6xl md:leading-[50px] mt-2 md:mt-6 opacity-90">
-                    Brix N Stones Studio  
-                </h1>
-                <h1 className="px-2 pb-4 bg-white opacity-80 text-black font-normal text-2xl md:text-2xl md:leading-[30px] mt-0 opacity-90">
+                <motion.h1 variants={typingContainer} initial='hidden' animate='show' className="px-2 pt-3 text-black bg-white opacity-80 font-bold text-4xl md:text-6xl md:leading-[50px] mt-2 md:mt-6 opacity-90">
+                    {
+                        Array.from("Brix N Stones Studio").map((word,i) => (
+                            <motion.span key={i} variants={typingText}>{word}</motion.span>
+                        ))
+                    }  
+                </motion.h1>
+                <motion.h1 variants={explainProduct} initial='hidden' animate='show' className="px-2 pb-4 bg-white opacity-80 text-black font-normal text-2xl md:text-2xl md:leading-[30px] mt-0 opacity-90">
                     Uniqueness Meets Architecture
-                </h1>
+                </motion.h1>
                     <form>
-                        <button formAction={ROUTES.CONTACT} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-2xl flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
+                        <motion.button variants={buttonProduct} initial='hidden' animate='show' formAction={ROUTES.CONTACT} className="focus:outline-none border-transparent focus:border-transparent focus:ring-0 text-gray-900 font-medium text-base md:text-2xl flex items-center gap-2 bg-white hover:bg-pink-100 py-2 px-5 rounded-2xl mt-6 hover:opacity-80 shadow-lg hover:shadow-2xl">
                             Let's talk
                             <Image src={arrow.src} alt='arrow' width={28} height={28} />
-                        </button>
+                        </motion.button>
                     </form>
             </div>
     </section>

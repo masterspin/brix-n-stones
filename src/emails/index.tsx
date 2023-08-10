@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Head,
+  Hr,
   Heading,
   Html,
   Img,
@@ -14,7 +15,9 @@ import {
 import * as React from 'react';
 
 interface ConfirmationEmailProps {
-  userFirstname?: string;
+  userFirstname: string;
+  userLastname: string;
+  message: string;
 }
 
 const baseUrl = process.env.VERCEL_URL
@@ -22,7 +25,7 @@ const baseUrl = process.env.VERCEL_URL
   : '';
 
 export const ConfirmationEmail = ({
-  userFirstname = 'Zeno',
+  userFirstname, userLastname, message
 }: ConfirmationEmailProps) => {
   return (
     <Html>
@@ -32,15 +35,15 @@ export const ConfirmationEmail = ({
         <Container style={container}>
           <Section>
             <Heading style={h1}>We received your submission!</Heading>
-            <Text style={text}>Hi {userFirstname},</Text>
+            <Text style={text}>Hi {userFirstname} {' '} {userLastname},</Text>
             <Text style={text}>
-              Thank you for submitting a request!
-              We'll follow up with you shortly.
+              Thank you for submitting a request! Below, we have attached your form submission.
+              We'll follow up with you shortly!
             </Text>
             <Text style={text}>
-            For any future inquries related to this submission, please contact us through {' '}
+            For any future inquries related to this submission, please contact us through our {' '}
               <Link style={anchor} href="mailto:studio.brixnstones@gmail.com">
-                our email
+                email
               </Link>
               {' '} or by {' '}
               <Link style={anchor} href="tel: +12487562614">
@@ -54,6 +57,11 @@ export const ConfirmationEmail = ({
             width="225"
             alt="BrixNStones"
           />
+        <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+        <Text style={h2}>
+          Your form submission: {' '}
+          <span className="text-black">{message} </span>
+        </Text>
         </Container>
       </Body>
     </Html>
@@ -89,6 +97,15 @@ const h1 = {
   fontSize: '24px',
   fontWeight: 'bold',
   margin: '10px 0',
+  padding: '0',
+};
+
+const h2 = {
+  color: '#333',
+  fontFamily:
+    "'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif",
+  fontSize: '14px',
+  margin: '0px 0',
   padding: '0',
 };
 

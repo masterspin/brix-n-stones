@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 import { Carousel, Embla } from '@mantine/carousel';
 import { Progress, rem } from '@mantine/core'
@@ -18,8 +17,6 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
 
     const [scrollProgress, setScrollProgress] = useState(0)
     const [embla, setEmbla] = useState<Embla | null>(null)
-
-    const autoplay = useRef(Autoplay({ delay: 2000 }));
 
     const handleScroll = useCallback(() => {
         if(!embla) return;

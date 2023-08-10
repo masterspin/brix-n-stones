@@ -7,7 +7,7 @@ import Header from '@/components/header'
 import { projectCardsAnimation, buttonProduct } from '@/utils/animations';
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import CardSkeleton from '@/components/cardSkeleton';
+import CardSkeleton from '@/components/roomSkeleton';
 import TitleSkeleton from '@/components/titleSkeleton';
 import arrow2 from '@/../public/images/arrow3.png'
 import * as ROUTES from '@/constants/routes'
@@ -81,7 +81,7 @@ export default function Page({ params }: { params: { id: string } }) {
               <Link href={'/projects/' + items.project_id + '/' + proj.name} key={proj.name}>
               <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className="font-bold w-full text-black hover:text-orange-800 rounded overflow-hidden shadow-md py-20 mb-0" style={{backgroundImage: `url(${proj.urls})`, backgroundSize: 'cover', backgroundRepeat:'no-repeat', backgroundColor:'transparent'}}>
                 <div className="py-4 my-auto py-auto">
-                  <div className="bg-white text-center text-xl px-20">{proj.name}</div>
+                  <div className="bg-white text-center text-xl px-20 md:px-4 lg:px-16">{proj.name}</div>
                 </div>
             </motion.div>
             </Link>
