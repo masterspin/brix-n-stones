@@ -71,7 +71,7 @@ export default function Page({ params }: { params: { id: string } }) {
         {isLoading && <TitleSkeleton lower={false} />}
         {!isLoading && 
             <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
-                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{items.name}</h1>
+                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">{items.name}</h1>
             </motion.div>
         }
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 pt-12 pb-12 px-8 md:px-auto">

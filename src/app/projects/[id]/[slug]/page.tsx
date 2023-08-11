@@ -53,10 +53,10 @@ export default function Page({ params }: { params: { id: string, slug: string } 
             {  !isLoading &&
             <div>
                 <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
-                    <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 lg:text-6xl dark:text-white">{items.name}</h1>
+                    <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 lg:text-6xl">{items.name}</h1>
                 </motion.div>
                 <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
-                    <h1 className="mx-auto text-center px-4 text-2xl md:text-3xl font-semibold leading-none tracking-tight text-gray-900 lg:text-4xl dark:text-white">{params.slug.replaceAll('%20', ' ').replaceAll('%26', '&')}</h1>
+                    <h1 className="mx-auto text-center px-4 text-2xl md:text-3xl font-semibold leading-none tracking-tight text-gray-900 lg:text-4xl">{params.slug.replaceAll('%20', ' ').replaceAll('%26', '&')}</h1>
                 </motion.div>
             </div>
                 

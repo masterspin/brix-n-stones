@@ -1,1 +1,1 @@
-## The Brix N Stones Studio Website
+## The Brix N Stones Studio Website for Hosting to Vercel

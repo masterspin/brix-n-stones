@@ -1,10 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 import { formAnimation } from '@/utils/animations'
-import { useState } from 'react'
+import * as ROUTES from '@/constants/routes'
 import React from 'react'
 import background from "../../public/images/whitebricks.png"
-import emailjs, { send } from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 function isInputNamedElement(e: Element): e is HTMLInputElement & { name: string } {
   return 'value' in e && 'name' in e
@@ -20,7 +20,7 @@ const form:React.FC<formProps> = () => {
   async function handleOnSubmit(e: any) {
     e.preventDefault();
 
-    emailjs.sendForm('gmail', 'template_lhwm1o4', e.target, '4ZrndHac-ANgxcKX7')
+    emailjs.sendForm('gmail', 'template_9lj5ncp', e.target, 'fbeuP_50YqK4tRs3u')
     .then((result) => {
         console.log(result.text);
     }, (error) => {
@@ -46,8 +46,8 @@ const form:React.FC<formProps> = () => {
         message: formData.message,
       })
     })
-
     e.target.reset()
+    window.location.href = ROUTES.THANKS
   }
 
   // function sendEmail(e: any){

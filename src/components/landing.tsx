@@ -108,7 +108,7 @@ const landing:React.FC<landingProps> = () => {
         </motion.h1>
         <motion.div variants={previewAnimation} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <motion.div variants={previewAnimation} className="border-b-4 border-secondary py-5 working-process-list">
-                <h1 className="mb-4 font-medium text-3xl text-gray-900">01. Architectural Planning</h1>
+                <h1 className="mb-4 font-medium text-3xl text-gray-900">01. Architecture</h1>
                 <img src={service1.src} className='rounded-2xl mx-auto my-auto' width={260} height={260}></img>
             </motion.div>
             <motion.div variants={previewAnimation} className="border-b-4 border-yellow py-5 working-process-list">
@@ -116,17 +116,17 @@ const landing:React.FC<landingProps> = () => {
                 <img src={service2.src} className='rounded-2xl mx-auto my-auto' width={260} height={260}></img>
             </motion.div>
             <motion.div variants={previewAnimation} className="border-b-4 border-primary py-5 working-process-list">
-                <h1 className="mb-4 font-medium text-3xl text-gray-900">03. Execution</h1>
+                <h1 className="mb-4 font-medium text-3xl text-gray-900">03. Construction & Execution</h1>
                 <img src={service3.src} className='rounded-2xl mx-auto my-auto' width={260} height={260}></img>
             </motion.div>
         </motion.div>
         <motion.div variants={previewAnimation} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <motion.div variants={previewAnimation} className="border-b-4 border-secondary py-5 working-process-list">
-                <h1 className="mb-4 font-medium text-3xl text-gray-900">04. Renovation</h1>
+                <h1 className="mb-4 font-medium text-3xl text-gray-900">04. Furniture Design</h1>
                 <img src={service4.src} className='rounded-2xl mx-auto my-auto' width={260} height={260}></img>
             </motion.div>
             <motion.div variants={previewAnimation} className="border-b-4 border-yellow py-5 working-process-list">
-                <h1 className="mb-4 font-medium text-3xl text-gray-900">05. 3D Visuals</h1>
+                <h1 className="mb-4 font-medium text-3xl text-gray-900">05. Architectural Rendition</h1>
                 <img src={service5.src} className='rounded-2xl mx-auto my-auto' width={260} height={260}></img>
             </motion.div>
             <motion.div variants={previewAnimation} className='my-auto mx-auto'>

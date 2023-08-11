@@ -68,7 +68,7 @@ export default function Home() {
         let urlsArr = []
         const uploadRef = ref(storage, `${doc.data()['project_id']}.${doc.data()['name']}/COVER/`);
         listAll(uploadRef).then((response) => {
-            response.items.forEach((item) => {
+            response.items.slice(0, 3).forEach((item) => {
                 getDownloadURL(item).then((url) =>{
                    setUrls(url)
                    urlsArr.push(url)
@@ -92,7 +92,7 @@ export default function Home() {
       {isLoading && <TitleSkeleton lower={false} />}
         {!isLoading && 
             <motion.div variants={projectCardsAnimation} initial='initial' animate='animate' className='flex pb-4'>
-                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Our Journey</h1>
+                <h1 className="text-center px-4 text-4xl md:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Our Journey</h1>
             </motion.div>
         }
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 pt-12 pb-12 px-8 md:px-auto"> 

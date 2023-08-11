@@ -26,7 +26,7 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
 
       const slides = arr.map((url) => {
         return <Carousel.Slide key={url}>
-            <Image src={url} alt='image' width={750} height={400} />
+            <Image src={url} alt='image' width={960} height={600} />
         </Carousel.Slide>
       })
 
@@ -39,7 +39,7 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
     
     return (
         <motion.div variants={projectCardsAnimation} initial='initial' animate='animate'>
-        <Carousel maw={750} controlSize={40} nextControlIcon={<IconArrowRight size={16} />}
+        <Carousel maw={960} controlSize={40} nextControlIcon={<IconArrowRight size={16} />}
       previousControlIcon={<IconArrowLeft size={16} />} getEmblaApi={setEmbla} styles={{
         control: {
           '&[data-inactive]': {
@@ -50,7 +50,7 @@ const EmblaCarousel:React.FC<EmblaCarouselProps> = ({arr}) => {
       }}>
             {slides}
         </Carousel>
-        <Progress value={scrollProgress} size="sm" mt="lg" mx="auto" styles={{ bar: { transitionDuration: '0ms' }, root: { maxWidth: rem(320) } }}>
+        <Progress value={scrollProgress} size="sm" mt="lg" mx="auto" styles={{ bar: { transitionDuration: '0ms', backgroundColor:'gray' }, root: { maxWidth: rem(320) } }}>
         
         </Progress>
         </motion.div>
