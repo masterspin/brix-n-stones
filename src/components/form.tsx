@@ -116,31 +116,36 @@ const form:React.FC<formProps> = () => {
                 </div>
         </div>
         <div className="lg:hidden w-full lg:w-2/3 sm:w-4/5 py-10 px-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
                 <div className="px-4">
-                <a href="tel: +12487562614"><img width="50px" height="50px" src="/images/phone.png"/></a>
-                <a href="tel: +12487562614" className="text-center">Call Us!</a>
+                <a href="tel: +916361917941 "><img width="50px" height="50px" src="/images/phone.png"/></a>
                 </div>
                 <div className="px-4">
                 <a href="mailto: studio.brixnstones@gmail.com"><img width="50px" height="50px" src="/images/email.png"/></a>
-                <a href="mailto: studio.brixnstones@gmail.com" className="text-center">Email Us!</a>
+                </div>
+                <div className="px-4">
+                <a href="https://www.instagram.com/brix_n_stones/"><img width="50px" height="50px" src="/images/instagram.png"/></a>
                 </div>
             </div>
         </div>
-        <div className="max-lg:hidden w-full lg:w-2/3 sm:w-4/5 py-16 px-6">
-            <div className="grid grid-cols-3 gap-4">
+        <div className="max-lg:hidden w-full lg:w-2/3 sm:w-4/5 pt-16 pb-12 px-6">
+            <div className="grid grid-cols-4 gap-4">
             <div className="px-4">
                 <p className="font-semibold">Hours</p>
                 <p>9:30 - 18:30 IST</p>
                 <p>Mon - Sat</p>
                 </div>
                 <div className="px-4">
-                <a href="tel: +12487562614"><img width="64px" height="64px" src="/images/phone.png"/></a>
-                <a href="tel: +12487562614" className="text-center">Call Us!</a>
+                <a href="tel: +916361917941 "><img width="64px" height="64px" src="/images/phone.png"/></a>
+                <a href="tel: +916361917941 " className="text-center">Call Us!</a>
                 </div>
                 <div className="px-4">
                 <a href="mailto: studio.brixnstones@gmail.com"><img width="64px" height="64px" src="/images/email.png"/></a>
                 <a href="mailto: studio.brixnstones@gmail.com" className="text-center">Email Us!</a>
+                </div>
+                <div className="px-4">
+                <a href="https://www.instagram.com/brix_n_stones/"><img width="64px" height="64px" src="/images/instagram.png"/></a>
+                <a href="https://www.instagram.com/brix_n_stones/" className="text-center">Follow Us!</a>
                 </div>
             </div>
         </div>

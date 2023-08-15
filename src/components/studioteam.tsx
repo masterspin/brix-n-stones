@@ -6,6 +6,7 @@ import profile2 from "../../public/images/profile2.png"
 import profile3 from "../../public/images/profile3.png"
 import { motion } from 'framer-motion'
 import { slideFromLeft,slideFromRight, formAnimation } from '@/utils/animations';
+import form from './form';
 
 type studioteamProps = {
   
@@ -16,13 +17,29 @@ const studioteam:React.FC<studioteamProps> = () => {
   return (
 <div className="flex flex-col items-center justify-center pb-16 pt-14 bg-center bg-cover" style={{backgroundImage: `url(${background.src})`, backgroundRepeat: 'repeat-y'}}>
     <motion.div variants={formAnimation} initial='initial' animate='animate'>
-      <h1 className="mb-4 pb-8 text-4xl md:text-5xl lg:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Meet The Team!</h1>
+      <h1 className="text-4xl pb-2 md:text-5xl lg:text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Meet The Team!</h1>
     </motion.div>
+    <motion.div className="max-w-4xl w-full mx-auto z-10 pb-2 px-0 lg:px-8" variants={formAnimation} initial="initial" animate = "animate">
+		<div className="flex flex-col">
+			<div className="bg-gray-100 rounded-full p-4 m-4">
+          <div className="flex-none sm:flex">
+              <div className="flex justify-between sm:mt-2">
+                <div className="flex">
+                  <div className="flex flex-col">
+                    <div className="w-full flex-none  lg:text-xl text-center text-black leading-5">We the team at Brix n Stones embrace the principles of a number of styles, minimalistic, elegance and a touch of luxury defines our style best. 
+We strive to create designs that are timeless and sophisticated. Every project is approached with meticulous attention to details ensuring a harmonious blend of form and function.</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+				</div>
+			</div>
+		</motion.div>
     <motion.div className="max-w-4xl w-full mx-auto z-10" variants={slideFromLeft} initial="initial" animate = "animate">
 		<div className="flex flex-col">
 			<div className="bg-white border border-white shadow-md rounded-3xl p-4 m-4">
           <div className="flex-none sm:flex">
-          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2'>
             <div className="my-auto relative h-32 w-32">
               <img src={profile1.src} className="my-auto rounded-full w-28 h-28 object-cover" />
             </div>

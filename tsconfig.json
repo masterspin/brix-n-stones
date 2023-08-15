@@ -37,7 +37,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/header.tsx"
-  ],
+, ".next/types/app/server-sitemap.xml/page.tsx", "src/app/sitemap.ts"  ],
   "exclude": [
     "node_modules"
   ]

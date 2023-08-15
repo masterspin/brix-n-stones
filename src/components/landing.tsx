@@ -30,7 +30,7 @@ const landing:React.FC<landingProps> = () => {
             <div className=" bg-secondary h-full md:h-[38rem] p-7 rounded-xl md:rounded-none mt-5 md:mt-0 hero-grid">
                 <motion.h1 className="text-black font-bold text-4xl md:text-6xl md:leading-[50px] mt-2 md:mt-6 mb-1 opacity-90" variants={typingContainer} initial='hidden' animate='show'>
                     {
-                        Array.from("Brix N Stones Studio").map((word,i) => (
+                        Array.from("Brix n Stones Studio").map((word,i) => (
                             <motion.span key={i} variants={typingText}>{word}</motion.span>
                         ))
                     }
@@ -56,7 +56,7 @@ const landing:React.FC<landingProps> = () => {
             <div className="bg-secondary h-full md:h-[38rem] p-7 rounded-xl md:rounded-none md:mt-0 hero-grid">
                 <motion.h1 variants={typingContainer} initial='hidden' animate='show' className="px-2 pt-3 pb-2 py-1text-black bg-white opacity-80 font-bold text-4xl md:text-6xl md:leading-[50px] mt-2 md:mt-6 opacity-90">
                     {
-                        Array.from("Brix N Stones Studio").map((word,i) => (
+                        Array.from("Brix n Stones Studio").map((word,i) => (
                             <motion.span key={i} variants={typingText}>{word}</motion.span>
                         ))
                     }  
@@ -77,7 +77,7 @@ const landing:React.FC<landingProps> = () => {
             <div className="bg-secondary h-full md:h-[40rem] p-7 rounded-xl md:rounded-none mt-5 md:mt-0 hero-grid">
                 <motion.h1 variants={typingContainer} initial='hidden' animate='show' className="px-2 pt-3 text-black bg-white opacity-80 font-bold text-4xl md:text-6xl md:leading-[50px] mt-2 md:mt-6 opacity-90">
                     {
-                        Array.from("Brix N Stones Studio").map((word,i) => (
+                        Array.from("Brix n Stones Studio").map((word,i) => (
                             <motion.span key={i} variants={typingText}>{word}</motion.span>
                         ))
                     }  

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.brixnstones.in
+
+# Sitemaps
+Sitemap: https://www.brixnstones.in/sitemap.xml

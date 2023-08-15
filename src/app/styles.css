@@ -28,7 +28,6 @@ Use a more readable tab size (opinionated).
 }
 
 
-
 /* CSS */
 .button-45 {
   align-items: center;
@@ -1118,11 +1117,6 @@ video {
 .text-blue-medium {
     --tw-text-opacity: 1;
     color: rgba(0, 92, 152, var(--tw-text-opacity));
-}
-
-.text-mblue {
-    --tw-text-opacity: 1;
-    color: rgba(0, 39, 76 var(--tw-text-opacity));
 }
 
 .text-black-light {
